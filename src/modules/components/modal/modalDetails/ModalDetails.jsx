@@ -4,6 +4,15 @@ import './modalDetails.scss'
 import { KEY_CONTEXT_USER } from '../../../../lib/context/use.reducer'
 import ButtonComponent from '../../button/Button'
 import AppImages from '../../../../assets'
+
+const insertLineBreaks = (text, maxLength) => {
+    let result = '';
+    for (let i = 0; i < text.length; i += maxLength) {
+        result += text.slice(i, i + maxLength) + '\n';
+    }
+    return result;
+};
+
 const ModalDetails = () => {
     const [userCTX, dispatch] = useContext(UserContext)
     const onClickClone = () => {
@@ -18,9 +27,9 @@ const ModalDetails = () => {
             </div>
             <h1>{userCTX.titleModel ?? 'Chi tiết mục'}</h1>
             <img className="icon" src={AppImages.deleteModal} alt="" />
-            <label>
+            <label >
                 {' '}
-                {userCTX.contentModel}
+                {insertLineBreaks(userCTX.contentModel, 34)}
             </label>
             <div>
                 <ButtonComponent buttonAuth={false} title={'OK'} onClick={onClickClone} />

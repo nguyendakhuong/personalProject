@@ -13,7 +13,6 @@ function App() {
   const [{ isOpenModal, language }, dispatch] = useContext(UserContext);
   const role = APP_LOCAL.getRoleStorage();
   const [t, i18n] = useTranslation();
-  console.log(role);
   useEffect(() => {
     if (language) {
       i18n.changeLanguage(language);

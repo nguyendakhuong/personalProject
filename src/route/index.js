@@ -3,7 +3,6 @@ import Main from "../modules/Main";
 import TodoList from "../modules/todolist/Todo-List";
 
 const AppRoute = (role) => {
-  console.log(role);
   const route = [
     {
       path: "/",

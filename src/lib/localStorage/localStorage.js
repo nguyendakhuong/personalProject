@@ -1,7 +1,7 @@
 export const KEY_LOCAL = {
   ROLE: "RL",
   LANGUAGE: "LG",
-  TODO_LIST: "TDL",
+  TODO_LIST: "TD",
 };
 
 const getRoleStorage = () => {
@@ -21,11 +21,12 @@ const setLanguageStorage = (language) => {
 };
 
 const getTodoList = () => {
-  return localStorage.getItem(KEY_LOCAL.TODO_LIST);
+  const todoList = localStorage.getItem(KEY_LOCAL.TODO_LIST);
+  return todoList ? JSON.parse(todoList) : [];
 };
 
 const setTodoList = (list) => {
-  return localStorage.setItem(KEY_LOCAL.TODO_LIST, list);
+  return localStorage.setItem(KEY_LOCAL.TODO_LIST, JSON.stringify(list));
 };
 
 const APP_LOCAL = {

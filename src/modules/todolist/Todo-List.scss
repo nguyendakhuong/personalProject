@@ -19,6 +19,9 @@
       border-bottom: 1px solid #ccc;
       gap: 10px;
       cursor: pointer;
+      span {
+        flex: 1;
+      }
     }
   }
 }

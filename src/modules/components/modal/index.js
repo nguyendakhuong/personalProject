@@ -4,10 +4,12 @@ import { KEY_CONTEXT_USER } from "../../../lib/context/use.reducer";
 import "./modal.scss";
 import ModalDeleteItem from "./modalDelete/modalDelete";
 import ModalDetails from "./modalDetails/ModalDetails";
+import ModalEdit from "./modalEdit/ModalEdit";
 
 export const TYPE_MODEL = {
   DELETE_ITEM: "DELETE_ITEM",
   DETAILS: "DETAILS",
+  EDIT: "EDIT",
 };
 const Modal = () => {
   const [{ isOpenModal, dataModal, typeModal }, dispatch] =
@@ -25,6 +27,7 @@ const Modal = () => {
       <div className="show-modal">
         {typeModal === TYPE_MODEL.DELETE_ITEM && <ModalDeleteItem />}
         {typeModal === TYPE_MODEL.DETAILS && <ModalDetails />}
+        {typeModal === TYPE_MODEL.EDIT && <ModalEdit />}
       </div>
     </div>
   );
