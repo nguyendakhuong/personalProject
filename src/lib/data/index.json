@@ -3,5 +3,9 @@
     "role": "1",
     "name": "Todo List",
     "describe": "Lưu lại những việc cần thực hiện có thể thêm sửa xóa"
+  },
+  {
+    "role": "2",
+    "name": "Auth Firebase"
   }
 ]

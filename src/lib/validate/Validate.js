@@ -1,6 +1,11 @@
 import { ERROR_CHECK_LIST_TYPE } from "./ListError";
 
-export const Validate = (type = "email", inputValue, listError = {}) => {
+export const Validate = (
+  type = "email",
+  inputValue,
+  listError = {},
+  password
+) => {
   let error = null;
   const regEmail =
     /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
@@ -26,6 +31,9 @@ export const Validate = (type = "email", inputValue, listError = {}) => {
         break;
       case "checkNumber":
         error = isNaN(inputValue) ? ERROR_CHECK_LIST_TYPE[key] : "";
+        break;
+      case "checkPw":
+        error = inputValue !== password ? ERROR_CHECK_LIST_TYPE[key] : "";
         break;
       default:
     }

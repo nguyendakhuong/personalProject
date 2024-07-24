@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import UserContext from "./lib/context/use.context";
 import { useTranslation } from "react-i18next";
 import APP_LOCAL from "./lib/localStorage/localStorage";
@@ -8,10 +8,10 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Loading from "./modules/components/loading/Loading";
 import Modal from "./modules/components/modal";
+import { KEY_CONTEXT_USER } from "./lib/context/use.reducer";
 
 function App() {
   const [{ isOpenModal, language }, dispatch] = useContext(UserContext);
-  const role = APP_LOCAL.getRoleStorage();
   const [t, i18n] = useTranslation();
   useEffect(() => {
     if (language) {
@@ -21,7 +21,7 @@ function App() {
 
   return (
     <div>
-      <RouterProvider router={AppRoute(role)} />
+      <RouterProvider router={AppRoute()} />
       <ToastContainer />
       <Loading />
       {isOpenModal && <Modal />}
